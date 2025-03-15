@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HISMA - Registro Digital de Cambios de Aceite</title>
+    <meta name="description" content="Centraliza y accede al historial de mantenimiento de tu vehículo con HISMA, la plataforma líder en registro de cambios de aceite.">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/hisma_logo_horizontal.png" alt="HISMA Logo" height="80" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="lubricentros.html">Para Lubricentros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="conductores.html">Para Conductores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="acerca.html">Acerca de</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-success text-white ms-2 px-3" href="#">Ingresar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section con buscador -->
+    <header class="hero-section" style="background-image: url('img/herobg_1.jpg');">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-lg-7 hero-text">
+                    <h1 class="display-4 text-white fw-bold">Registro Digital de Cambios de Aceite</h1>
+                    <p class="lead text-white mb-4">Centraliza y accede al historial de mantenimiento de tu vehículo</p>
+                    
+                    <!-- Buscador de dominio -->
+                    <div class="card p-3 search-card">
+                        <h2 class="h5 mb-3">Consulta el último cambio de aceite de tu vehículo</h2>
+                        <div class="input-group">
+                            <input type="text" id="dominio-input" class="form-control form-control-lg" placeholder="Ingresá la patente (ej: AB123CD)" aria-label="Dominio">
+                            <button class="btn btn-primary btn-lg" type="button" id="search-button">
+                                <i class="fas fa-search"></i> Buscar
+                            </button>
+                                                        
+                        </div>
+                        <small class="form-text text-muted mt-2">Formato: AA000AA o AAA000</small>
+                        
+                        <!-- Área donde se mostrará el resultado -->
+                        <div id="resultado-consulta" class="mt-3 d-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección de Beneficios -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Beneficios de HISMA</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 benefit-card">
+                        <div class="card-body text-center">
+                            <div class="icon-wrapper mb-3">
+                                <i class="fas fa-bell fa-3x text-primary"></i>
+                            </div>
+                            <h3 class="h5">Recordatorios Automáticos</h3>
+                            <p class="card-text">Recibe alertas cuando se aproxime la fecha de tu próximo cambio de aceite.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 benefit-card">
+                        <div class="card-body text-center">
+                            <div class="icon-wrapper mb-3">
+                                <i class="fas fa-history fa-3x text-primary"></i>
+                            </div>
+                            <h3 class="h5">Historial Digital</h3>
+                            <p class="card-text">Mantén un registro completo de todos los servicios realizados a tu vehículo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 benefit-card">
+                        <div class="card-body text-center">
+                            <div class="icon-wrapper mb-3">
+                                <i class="fas fa-certificate fa-3x text-primary"></i>
+                            </div>
+                            <h3 class="h5">Certificado de Servicio</h3>
+                            <p class="card-text">Obtén comprobantes digitales que avalan el mantenimiento de tu vehículo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 benefit-card">
+                        <div class="card-body text-center">
+                            <div class="icon-wrapper mb-3">
+                                <i class="fas fa-tachometer-alt fa-3x text-primary"></i>
+                            </div>
+                            <h3 class="h5">Control de Kilometraje</h3>
+                            <p class="card-text">Seguimiento preciso del kilometraje entre servicios para mejor mantenimiento.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección para Lubricentros -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <h2>¿Eres propietario de un lubricentro?</h2>
+                    <p class="lead">HISMA te ofrece una plataforma completa para gestionar los cambios de aceite de tus clientes, maximizar la retención y optimizar tu negocio.</p>
+                    <ul class="check-list">
+                        <li>Gestión digital de cambios de aceite</li>
+                        <li>Recordatorios automáticos a tus clientes</li>
+                        <li>Estadísticas y reportes de rendimiento</li>
+                        <li>Generación automática de PDFs</li>
+                    </ul>
+                    <a href="lubricentros.html" class="btn btn-light btn-lg mt-3">
+                        <i class="fas fa-info-circle"></i> Más información
+                    </a>
+                    <a href="#" class="btn btn-success btn-lg mt-3 ms-2">
+                        <i class="fas fa-user-plus"></i> Registrarse
+                    </a>
+                </div>
+                <div class="col-lg-5 text-center">
+                    <img src="img/placeholder-lubricentro.jpg" alt="Dashboard para lubricentros" class="img-fluid rounded shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Testimonios -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Lo que dicen nuestros usuarios</h2>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 testimonial-card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="testimonial-img">
+                                    <!-- Aquí puedes colocar una imagen o iniciales -->
+                                    <span>JR</span>
+                                </div>
+                                <div class="ms-3">
+                                    <h5 class="mb-0">Juan Rodríguez</h5>
+                                    <p class="text-muted mb-0">Conductor</p>
+                                </div>
+                            </div>
+                            <p class="card-text">"Gracias a HISMA nunca más me olvidé de hacer el cambio de aceite. La app me avisa cuando tengo que ir y tengo todo el historial de mi auto a mano."</p>
+                            <div class="rating text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Agregar más testimonios -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Estadísticas -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4 mb-4">
+                    <div class="stat-item">
+                        <div class="display-3 fw-bold text-primary" data-count="15000">15,000+</div>
+                        <p class="lead">Cambios Registrados</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="stat-item">
+                        <div class="display-3 fw-bold text-primary" data-count="80">80+</div>
+                        <p class="lead">Lubricentros Activos</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="stat-item">
+                        <div class="display-3 fw-bold text-primary" data-count="5000">5,000+</div>
+                        <p class="lead">Vehículos en Seguimiento</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h4>HISMA</h4>
+                    <p>Plataforma líder en gestión digital de cambios de aceite para vehículos.</p>
+                    <p>12 años transparentando el mercado automotor</p>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 mb-4">
+                    <h5>Enlaces</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white">Inicio</a></li>
+                        <li><a href="lubricentros.html" class="text-white">Para Lubricentros</a></li>
+                        <li><a href="conductores.html" class="text-white">Para Conductores</a></li>
+                        <li><a href="acerca.html" class="text-white">Acerca de</a></li>
+                        <li><a href="blog.html" class="text-white">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h5>Contacto</h5>
+                    <address>
+                        <p><i class="fas fa-map-marker-alt me-2"></i> Av. Ejemplo 1234, Buenos Aires</p>
+                        <p><i class="fas fa-phone me-2"></i> (011) 1234-5678</p>
+                        <p><i class="fas fa-envelope me-2"></i> info@hisma.com.ar</p>
+                    </address>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h5>Suscríbete</h5>
+                    <p>Recibe nuestras novedades y consejos de mantenimiento.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Correo electrónico">
+                        <button class="btn btn-primary" type="button">Enviar</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2023 HISMA. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white me-3">Política de Privacidad</a>
+                    <a href="#" class="text-white">Términos y Condiciones</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/consulta.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

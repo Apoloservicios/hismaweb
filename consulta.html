@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Incluir los mismos metatags y enlaces a CSS/JS que en index.html -->
+    <title>Consulta tu Vehículo - HISMA</title>
+</head>
+<body>
+    <!-- Incluir la misma navbar que en index.html -->
+    
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-lg">
+                    <div class="card-header bg-primary text-white">
+                        <h1 class="h3 mb-0">Consulta de Cambios de Aceite</h1>
+                    </div>
+                    <div class="card-body">
+                        <p class="lead mb-4">Ingresa el dominio de tu vehículo para consultar su historial de cambios de aceite y mantenimiento.</p>
+                        
+                        <form id="consulta-form">
+                            <div class="mb-3">
+                                <label for="dominio-input" class="form-label">Dominio/Patente</label>
+                                <input type="text" class="form-control form-control-lg" id="dominio-input" placeholder="Ej: AB123CD o ABC123" required>
+                                <div class="form-text">Formatos aceptados: ABC123 (patente antigua) o AB123CD (patente nueva).</div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-lg w-100">
+                                <i class="fas fa-search me-2"></i>Consultar
+                            </button>
+                        </form>
+                        
+                        <!-- Área para mostrar el resultado -->
+                        <div id="resultado-consulta" class="mt-4 d-none"></div>
+                        
+                        <!-- Historial completo (se mostraría si hay múltiples cambios) -->
+                        <div id="historial-completo" class="mt-4 d-none">
+                            <h3 class="h5 mb-3">Historial de cambios</h3>
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Fecha</th>
+                                            <th>Kilometraje</th>
+                                            <th>Aceite</th>
+                                            <th>Próximo</th>
+                                            <th>Acción</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="historial-tabla">
+                                        <!-- Aquí se llenarán las filas dinámicamente -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Información adicional -->
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h4>¿Por qué es importante registrar los cambios de aceite?</h4>
+                        <p>El seguimiento adecuado de los cambios de aceite asegura la longevidad del motor y previene costosas reparaciones. Además, contar con un registro digital:</p>
+                        <ul>
+                            <li>Aumenta el valor de reventa del vehículo</li>
+                            <li>Facilita el cumplimiento de las garantías del fabricante</li>
+                            <li>Previene daños por mantenimiento tardío</li>
+                            <li>Permite un mejor control de gastos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sidebar con información adicional -->
+            <div class="col-lg-4 mt-4 mt-lg-0">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="h5 mb-0">Lubricentros Destacados</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <div class="d-flex">
+                                    <div class="flex-shrink-0">
+                                        <span class="badge bg-primary rounded-circle p-2">1</span>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <h5 class="mb-1">Servicio Rápido SRL</h5>
+                                        <p class="mb-0 small">Av. Corrientes 1234, CABA</p>
+                                        <p class="mb-0 small"><i class="fas fa-phone-alt me-1"></i> (011) 4567-8901</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- Agregar más lubricentros destacados -->
+                        </ul>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="#" class="btn btn-sm btn-outline-primary">Ver todos los lubricentros</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h3 class="h5 mb-0">¿Eres un Lubricentro?</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Únete a nuestra red de lubricentros y ofrece a tus clientes un servicio de valor agregado.</p>
+                        <a href="lubricentros.html" class="btn btn-success w-100">Más información</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Incluir el mismo footer que en index.html -->
+    <!-- Incluir los mismos scripts que en index.html -->
+    
+    <!-- Script adicional para esta página -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const consultaForm = document.getElementById('consulta-form');
+            
+            if (consultaForm) {
+                consultaForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    realizarBusqueda();
+                });
+            }
+            
+            // Recuperar el parámetro de la URL si existe
+            const urlParams = new URLSearchParams(window.location.search);
+            const dominioParam = urlParams.get('dominio');
+            
+            if (dominioParam) {
+                const dominioInput = document.getElementById('dominio-input');
+                if (dominioInput) {
+                    dominioInput.value = dominioParam;
+                    realizarBusqueda();
+                }
+            }
+            
+            // El resto de las funciones (realizarBusqueda, etc.) ya están en consulta.js
+        });
+    </script>
+</body>
+</html>
